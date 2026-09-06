@@ -2,7 +2,7 @@
 
 **WaveQ** is an Android disaster-response app that keeps working when the network doesn't. Built with Kotlin and Jetpack Compose, it combines citizen incident reporting, an operator command center, a rule-based flash-flood risk engine, and a **phone-to-phone offline mesh** (via Google Nearby Connections) so reports, SOS beacons, and critical alerts can still move between devices when cell towers and Wi-Fi are down.
 
-> **Status: active development, not yet a verified build.** This is a merged snapshot of two branches (see [`MERGE_NOTES.md`](./MERGE_NOTES.md)) and has not been compiled since the merge. A full security and correctness pass lives in [`AUDIT.md`](./AUDIT.md) / [`AUDIT2.md`](./AUDIT2.md) — read those before treating any life-safety path here as trustworthy. See [Known limitations](#known-limitations-read-before-relying-on-this) below for the short version.
+> **Status: active development, not yet a verified build.** This is a merged snapshot of two branches (see [`MERGE_NOTES.md`](./MERGE_NOTES.md)) and has not been compiled since the merge. See [Known limitations](#known-limitations-read-before-relying-on-this) below before treating any life-safety path here as trustworthy.
 
 ---
 
@@ -123,7 +123,7 @@ WaveQ is a work in progress, and because it's a life-safety-adjacent app, it's w
 - **The shelter list is a hardcoded demo dataset** for a single district, not a live or national feed.
 - **The Crisis Map on Home/Operator is a placeholder**, not yet a real interactive map.
 - **Voice notes can be recorded and sent but not played back** — the feature is currently incomplete end-to-end.
-- A full list of open findings, from critical to low severity, with file/line references and suggested fixes, is tracked in `AUDIT.md` and `AUDIT2.md`. Several open design decisions (e.g. whether SOS should survive process death, whether to sign mesh beacons) are called out explicitly rather than silently resolved.
+- Several open design decisions remain unresolved — e.g. whether SOS should survive process death, and whether to sign mesh beacons to close the spoofing gap above.
 
 ## Roadmap / open design decisions
 
@@ -138,4 +138,4 @@ WaveQ is a work in progress, and because it's a life-safety-adjacent app, it's w
 
 ## Contributing
 
-This is currently developed by a small team. See `MERGE_NOTES.md` for the most recent history of what changed and why, and `AUDIT.md` / `AUDIT2.md` before touching the mesh, alerts, or SOS code paths — several of the fixes there are life-safety relevant.
+This is currently developed by a small team. See `MERGE_NOTES.md` for the most recent history of what changed and why. Take extra care when touching the mesh, alerts, or SOS code paths — several of the known gaps above are life-safety relevant.
